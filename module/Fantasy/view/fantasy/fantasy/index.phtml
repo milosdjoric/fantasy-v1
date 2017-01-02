@@ -1,1 +1,30 @@
 <?php
+$title = 'Fantasy';
+$this->headTitle($title);
+?>
+<h1><?= $this->escapeHtml($title) ?></h1>
+
+<table class="table">
+    <tr>
+        <th>Player</th>
+        <th>Team</th>
+        <th>Score</th>
+        <th>Price</th>
+        <th>Up</th>
+        <th>Keeps Value</th>
+        <th>Down</th>
+        <th>Opponent</th>
+    </tr>
+    <?php foreach ($fantasy as $fantasy) : ?>
+        <tr>
+            <td><?= $this->escapeHtml($fantasy->player) ?></td>
+            <td><?= $this->escapeHtml($fantasy->team) ?></td>
+            <td><?= $this->escapeHtml($fantasy->score) ?></td>
+            <td><?= $this->escapeHtml($fantasy->price) ?></td>
+            <td><?= $this->escapeHtml($fantasy->up) ?></td>
+            <td><?= $this->escapeHtml($fantasy->keeps_value) ?></td>
+            <td><?= $this->escapeHtml($fantasy->down) ?></td>
+            <td><?= $this->escapeHtml($fantasy->opponent) ?></td>
+        </tr>
+    <?php endforeach; ?>
+</table>
