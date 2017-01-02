@@ -30,12 +30,15 @@
     },
     "autoload": {
         "psr-4": {
-            "Application\\": "module/Application/src/"
+            "Application\\": "module/Application/src/",
+            "Fantasy\\": "module/Fantasy/src/",
+            "Album\\": "module/Album/src/"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "ApplicationTest\\": "module/Application/test/"
+            "ApplicationTest\\": "module/Application/test/",
+            "Fantasy\\": "module/Fantasy/src/"
         }
     },
     "extra": [],
