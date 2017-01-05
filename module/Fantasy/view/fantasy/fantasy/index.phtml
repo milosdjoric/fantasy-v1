@@ -15,7 +15,7 @@ $this->headTitle($title);
         <th>Down</th>
         <th>Opponent</th>
     </tr>
-    <?php foreach ($fantasy as $fantasy) : ?>
+    <?php foreach ($this->paginator as $fantasy) : ?>
         <tr>
             <td><?= $this->escapeHtml($fantasy->player) ?></td>
             <td><?= $this->escapeHtml($fantasy->team) ?></td>
@@ -28,3 +28,15 @@ $this->headTitle($title);
         </tr>
     <?php endforeach; ?>
 </table>
+<?=
+$this->paginationControl(
+        // The paginator object:
+        $this->paginator,
+        // The scrolling style:
+        'sliding',
+        // The partial to use to render the control:
+        'partial/paginator',
+        // The route to link to when a user clicks a control link:
+        ['route' => 'fantasy']
+)
+?>

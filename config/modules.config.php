@@ -1,6 +1,8 @@
 <?php
 
 return [
+    'Zend\Paginator',
+    'Zend\Navigation',
     'ZendDeveloperTools',
     'Zend\ServiceManager\Di',
     'Zend\Session',
@@ -16,7 +18,6 @@ return [
     'Zend\Cache',
     'Zend\Router',
     'Zend\Validator',
-//    'Album',
     'Fantasy',
     'Application',
 ];

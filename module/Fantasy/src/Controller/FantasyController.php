@@ -18,9 +18,19 @@ class FantasyController extends AbstractActionController
 
     public function indexAction()
     {
-        return new ViewModel([
-            'fantasy' => $this->table->fetchAll(),
-        ]);
+        // Grab the paginator from the AlbumTable:
+        $paginator = $this->table->fetchAll(true);
+
+        // Set the current page to what has been passed in query string,
+        // or to 1 if none is set, or the page is invalid:
+        $page = (int) $this->params()->fromQuery('page', 1);
+        $page = ($page < 1) ? 1 : $page;
+        $paginator->setCurrentPageNumber($page);
+
+        // Set the number of items per page to 10:
+        $paginator->setItemCountPerPage(4);
+
+        return new ViewModel(['paginator' => $paginator]);
     }
 
 }
