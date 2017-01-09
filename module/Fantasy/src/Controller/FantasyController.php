@@ -37,7 +37,10 @@ class FantasyController extends AbstractActionController
     {
         return new ViewModel();
     }
-    
-    
+
+    public function statsAction()
+    {
+        return new ViewModel();
+    }
 
 }
