@@ -5,7 +5,6 @@ namespace Application;
 use Zend\Router\Http\Literal;
 use Zend\Router\Http\Segment;
 use Zend\ServiceManager\Factory\InvokableFactory;
-use Zend\Navigation\Service\DefaultNavigationFactory;
 
 return [
     'router' => [
@@ -51,6 +50,28 @@ return [
         ],
         'template_path_stack' => [
             __DIR__ . '/../view',
+        ],
+    ],
+    'navigation' => [
+        'default' => [
+            [
+                'label' => 'Home',
+                'id' => 'home',
+                'route' => 'home',
+            ],
+            [
+                'label' => 'Fantasy',
+                'id' => 'fantasy',
+                'route' => 'fantasy',
+                'pages' => [
+                    [
+                        'label' => 'Dashboard',
+                        'route' => 'fantasy',
+                        'id' => 'dashboard',
+                        'action' => 'dashboard',
+                    ],
+                ],
+            ],
         ],
     ],
 ];

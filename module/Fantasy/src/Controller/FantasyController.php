@@ -33,4 +33,11 @@ class FantasyController extends AbstractActionController
         return new ViewModel(['paginator' => $paginator]);
     }
 
+    public function dashboardAction()
+    {
+        return new ViewModel();
+    }
+    
+    
+
 }
