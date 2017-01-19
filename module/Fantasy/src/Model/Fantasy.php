@@ -5,10 +5,6 @@ namespace Fantasy\Model;
 class Fantasy
 {
 
-    public $id;
-    public $player;
-    public $score;
-
     public function exchangeArray(array $data)
     {
         $this->id = !empty($data['id']) ? $data['id'] : null;

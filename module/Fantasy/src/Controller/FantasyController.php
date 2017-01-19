@@ -5,6 +5,7 @@ namespace Fantasy\Controller;
 use Zend\Mvc\Controller\AbstractActionController;
 use Fantasy\Model\FantasyTable;
 use Zend\View\Model\ViewModel;
+use Fantasy\Model\Dashboard;
 
 class FantasyController extends AbstractActionController
 {
@@ -35,6 +36,12 @@ class FantasyController extends AbstractActionController
 
     public function dashboardAction()
     {
+
+        $objekat = new Dashboard();
+//        ini_set('error_reporting', E_STRICT);
+//        echo $objekat->tekst();
+        $objekat_dva->view->objekat = $objekat;
+
         return new ViewModel();
     }
 
