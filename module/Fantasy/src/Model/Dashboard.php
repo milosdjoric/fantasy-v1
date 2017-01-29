@@ -5,9 +5,9 @@ namespace Fantasy\Model;
 class Dashboard
 {
 
-    public function tekst()
+    public function printText()
     {
-        echo "nešto";
+        
     }
 
 }

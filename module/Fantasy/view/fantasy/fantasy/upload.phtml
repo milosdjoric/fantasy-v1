@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<?php
+$upload->uploadFile();
+$form->prepare();
+echo $this->form()->openTag($form);
+?>
+<div class="form_element">
+    <?= $this->formRow($form->get('myfile')) ?>
+</div>
+<div class="form_element">
+    <?= $this->formRow($form->get('submit')) ?>
+</div>
+<?php echo $this->form()->closeTag() ?>

@@ -42,26 +42,41 @@ return [
             __DIR__ . '/../view',
         ],
     ],
-    'navigation' => [
-        'default' => [
-            [
-                'label' => 'Home',
-                'id' => 'home',
-                'route' => 'home',
-            ],
-            [
-                'label' => 'Fantasy',
-                'id' => 'fantasy',
-                'route' => 'fantasy',
-                'pages' => [
-                    [
-                        'label' => 'Dashboard',
-                        'route' => 'fantasy',
-                        'id' => 'dashboard',
-                        'action' => 'dashboard',
-                    ],
-                ],
-            ],
+    
+//    služi za zend/navigation
+    
+    
+//    'menu' => [
+//        'default' => [
+//            [
+//                'label' => 'Home',
+//                'id' => 'home',
+//                'route' => 'home',
+//                'pages' => [
+//                    'label' => 'Dashboard',
+//                    'route' => 'fantasy',
+//                    'id' => 'dashboard',
+//                    'action' => 'dashboard',
+//                ]
+//            ],
+//            [
+//                'label' => 'Fantasy',
+//                'id' => 'fantasy',
+//                'route' => 'fantasy',
+//                'pages' => [
+//                    [
+//                        'label' => 'Dashboard',
+//                        'route' => 'fantasy',
+//                        'id' => 'dashboard',
+//                        'action' => 'dashboard',
+//                    ],
+//                ],
+//            ],
+//        ],
+//    ],
+    'service_manager' => [
+        'factories' => [
+            'navigation' => Zend\Navigation\Service\DefaultNavigationFactory::class,
         ],
     ],
 ];

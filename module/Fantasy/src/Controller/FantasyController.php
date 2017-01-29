@@ -6,6 +6,8 @@ use Zend\Mvc\Controller\AbstractActionController;
 use Fantasy\Model\FantasyTable;
 use Zend\View\Model\ViewModel;
 use Fantasy\Model\Dashboard;
+use Fantasy\Model\Upload;
+use Fantasy\Form\UploadForm;
 
 class FantasyController extends AbstractActionController
 {
@@ -19,16 +21,17 @@ class FantasyController extends AbstractActionController
 
     public function indexAction()
     {
-        // Grab the paginator from the AlbumTable:
+
+// Grab the paginator from the AlbumTable:
         $paginator = $this->table->fetchAll(true);
 
-        // Set the current page to what has been passed in query string,
-        // or to 1 if none is set, or the page is invalid:
+// Set the current page to what has been passed in query string,
+// or to 1 if none is set, or the page is invalid:
         $page = (int) $this->params()->fromQuery('page', 1);
         $page = ($page < 1) ? 1 : $page;
         $paginator->setCurrentPageNumber($page);
 
-        // Set the number of items per page to 10:
+// Set the number of items per page to 10:
         $paginator->setItemCountPerPage(4);
 
         return new ViewModel(['paginator' => $paginator]);
@@ -36,18 +39,20 @@ class FantasyController extends AbstractActionController
 
     public function dashboardAction()
     {
-
-        $objekat = new Dashboard();
-//        ini_set('error_reporting', E_STRICT);
-//        echo $objekat->tekst();
-        $objekat_dva->view->objekat = $objekat;
-
         return new ViewModel();
     }
 
     public function statsAction()
     {
+
         return new ViewModel();
+    }
+
+    public function uploadAction()
+    {
+        $upload = new Upload();
+        $form = new UploadForm();
+        return new ViewModel(array('upload' => $upload, 'form' => $form));
     }
 
 }
