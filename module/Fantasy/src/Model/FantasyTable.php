@@ -40,12 +40,12 @@ class FantasyTable
 
         // Create a new pagination adapter object:
         $paginatorAdapter = new DbSelect(
-                // our configured select object:
-                $select,
-                // the adapter to run it against:
-                $this->tableGateway->getAdapter(),
-                // the result set to hydrate:
-                $resultSetPrototype
+        // our configured select object:
+            $select,
+            // the adapter to run it against:
+            $this->tableGateway->getAdapter(),
+            // the result set to hydrate:
+            $resultSetPrototype
         );
 
         $paginator = new Paginator($paginatorAdapter);

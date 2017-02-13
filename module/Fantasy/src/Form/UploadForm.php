@@ -20,10 +20,18 @@ class UploadForm extends Form
         ]);
 
         $this->add([
-            'name' => 'submit',
+            'name' => 'upload',
             'type' => 'Submit',
             'attributes' => [
-                'value' => 'Submit',
+                'value' => 'Upload',
+            ],
+        ]);
+
+        $this->add([
+            'name' => 'import',
+            'type' => 'Submit',
+            'attributes' => [
+                'value' => 'Import',
             ],
         ]);
     }

@@ -7,16 +7,21 @@ use Fantasy\Model\FantasyTable;
 use Zend\View\Model\ViewModel;
 use Fantasy\Model\Dashboard;
 use Fantasy\Model\Upload;
+use Fantasy\Model\Import;
 use Fantasy\Form\UploadForm;
+use Zend\Db\Adapter\Adapter;
+use Zend\Db\Adapter\Driver\DriverInterface;
 
 class FantasyController extends AbstractActionController
 {
 
     private $table;
 
+
     public function __construct(FantasyTable $table)
     {
         $this->table = $table;
+
     }
 
     public function indexAction()
@@ -27,7 +32,7 @@ class FantasyController extends AbstractActionController
 
 // Set the current page to what has been passed in query string,
 // or to 1 if none is set, or the page is invalid:
-        $page = (int) $this->params()->fromQuery('page', 1);
+        $page = (int)$this->params()->fromQuery('page', 1);
         $page = ($page < 1) ? 1 : $page;
         $paginator->setCurrentPageNumber($page);
 
@@ -50,9 +55,11 @@ class FantasyController extends AbstractActionController
 
     public function uploadAction()
     {
+
+        $import = new Import();
         $upload = new Upload();
         $form = new UploadForm();
-        return new ViewModel(array('upload' => $upload, 'form' => $form));
+        return new ViewModel(array('upload' => $upload, 'form' => $form, 'import' => $import));
     }
 
 }

@@ -1,13 +1,25 @@
 <!DOCTYPE html>
 <?php
-$upload->uploadFile();
+
+//$import->csvToArray();
 $form->prepare();
 echo $this->form()->openTag($form);
 ?>
 <div class="form_element">
-    <?= $this->formRow($form->get('myfile')) ?>
+    <?php echo $this->formRow($form->get('myfile')) ?>
 </div>
+<br>
 <div class="form_element">
-    <?= $this->formRow($form->get('submit')) ?>
+    <?php echo $this->formRow($form->get('upload')) ?>
 </div>
-<?php echo $this->form()->closeTag() ?>
+<br>
+<div class="form_element">
+    <?php echo $this->formRow($form->get('import')) ?>
+</div>
+<?php
+echo $this->form()->closeTag();
+$upload->uploadFile();
+$import->importCSV();
+?>
+<br>
+<?php
